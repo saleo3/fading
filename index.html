@@ -5,43 +5,67 @@
 <body>
 
 	<div id="fadingcontainer">
-		<div class="active">Texto1</div>
-		<div>Texto2</div>
-		<div>Texto3</div>
+		<div class="active">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</div>
+		<div>
+			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui ?
+		</div>
+		<div>
+			dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur
+		</div>
 	</div>
 
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script>
-	var container = $('#fadingcontainer');
-	var divs = container.find('div');
+	
+	fadingText = function() {
 
-		container.css({
-			"width": "100%",
-			"height": "50px",
-			"position": "relative"
-		});
+		var container = $('#fadingcontainer');
+		var divs = container.find('div');
 
-		divs.css({
-			"float": "left",
-			"width": "100%",
-			"height": "100%",
-			"position": "absolute",
-			"background": "#ccc",
-			"display": "none"
-		});
+			container.css({
+				"width": "100%",
+				"height": "50px",
+				"position": "relative"
+			});
 
-	var active = container.find("div.active");
-		active.show();
+			divs.css({
+				"float": "left",
+				"width": "100%",
+				"height": "100%",
+				"position": "absolute",
+				"background": "#ccc",
+				"display": "none"
+			});
 
-	function fadesss() {
-		var current = container.find("div.active");
-		var next    = current.next().length? current.next(): container.find('div:first-child');
-		
-		current.removeClass('active').fadeOut(3400);
-		next.addClass('active').fadeIn(3400);
-	}
+		var active = container.find("div.active");
+			active.show();
 
-	setInterval(fadesss, 7000);
+		fadesss = function() {
+			var current = container.find("div.active");
+			var next    = current.next().length? current.next(): container.find('div:first-child');
+			
+			current.removeClass('active').fadeOut(3400);
+			next.addClass('active').fadeIn(3400);
+		};
+
+		play = function() {
+			setInterval(fadesss, 7000);
+		}
+
+		return play;
+
+	}();
+
+	fadingText();
+
+
 
 </script>
 
