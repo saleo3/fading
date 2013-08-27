@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<div id="fadingcontainer">
+		<div class="active">Texto1</div>
+		<div>Texto2</div>
+		<div>Texto3</div>
+	</div>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script>
+	var container = $('#fadingcontainer');
+	var divs = container.find('div');
+
+		container.css({
+			"width": "100%",
+			"height": "50px",
+			"position": "relative"
+		});
+
+		divs.css({
+			"float": "left",
+			"width": "100%",
+			"height": "100%",
+			"position": "absolute",
+			"background": "#ccc",
+			"display": "none"
+		});
+
+	var active = container.find("div.active");
+		active.show();
+
+	function fadesss() {
+		var current = container.find("div.active");
+		var next    = current.next().length? current.next(): container.find('div:first-child');
+		
+		current.removeClass('active').fadeOut(3400);
+		next.addClass('active').fadeIn(3400);
+	}
+
+	setInterval(fadesss, 7000);
+
+</script>
+
+</body>
+</html>
+
