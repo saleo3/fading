@@ -28,7 +28,7 @@ fadingText = function() {
 		"display": "none"
 	});
 
-	configuration = function() {
+	var configuration = function() {
 		container.css({
 			"width": vars.w,
 			"height": vars.h,
@@ -36,7 +36,7 @@ fadingText = function() {
 		});
 	}
 
-	fadesss = function() {
+	var fadesss = function() {
 		var current = divs.filter(".active");
 		var next    = current.next().length? current.next(): divs.filter(':first-child');
 		
@@ -44,7 +44,7 @@ fadingText = function() {
 		next.addClass('active').fadeIn(400);
 	};
 
-	play = function(options) {
+	var play = function(options) {
 		active.show();
 		vars = $.extend({}, def, options);
 		configuration();
